@@ -57,8 +57,6 @@ public class TaskLaunchServer implements AutoCloseable {
             if no network interface is given, discovery is not enabled.
              */
             argumentHelper.getPort().ifPresent(builder::withPort);
-            // Enable network discovery on localhost.
-            builder.withDiscovery("lo");
             argumentHelper.getInterface().ifPresent(builder::withDiscovery);
 
             builder.addFeature(
@@ -80,11 +78,16 @@ public class TaskLaunchServer implements AutoCloseable {
     /**
      * Simple main function that starts the server and keeps it alive
      *
-     * @param args The server arguments. Network Interface: `-n`, `--networkInterface`. Server
-     * config file holding UUID and ServerName: `-c`, `--configFile`. Only list System Information:
-     * `-l`, `--listNetworks`. Encrypt communication or not: `-e`, `--encryption`. Specify (if
-     * supported) to start the server with simulation mode enabled: `-s`, `--simulation`. - Display
-     * server version: `-v`, `--version`.
+     * @param args The server arguments.
+     * <ul>
+     * <li> Network Interface: `-n`, `--networkInterface`</li>
+     * <li> Server config file holding UUID and ServerName: `-c`, `--configFile`</li>
+     * <li> Only list System Information: `-l`, `--listNetworks`</li>
+     * <li> Encrypt communication or not: `-e`, `--encryption`</li>
+     * <li> Specify (if supported) to start the server with simulation mode enabled: `-s`,
+     * `--simulation`</li>
+     * <li> Display server version: `-v`, `--version`</li>
+     * </ul>
      */
     public static void main(final String[] args) {
         final ArgumentHelper argumentHelper = new ArgumentHelper(args, SERVER_TYPE);
@@ -95,46 +98,4 @@ public class TaskLaunchServer implements AutoCloseable {
         }
         log.info("Termination complete.");
     }
-
-//    static class LauncherImpl extends TaskLaunchControllerGrpc.TaskLaunchControllerImplBase {
-//        @Override
-//        public void startTask(
-//                TaskLaunchControllerOuterClass.StartTask_Parameters req,
-//                StreamObserver<TaskLaunchControllerOuterClass.StartTask_Responses> responseObserver
-//        ) {
-//            if (!req.hasExecutable()) {
-//                responseObserver.onError(SiLAErrors.generateValidationError(
-//                        "Executable",
-//                        "Executable parameter was not set. Specify a executable with at least one "
-//                        + "character."
-//                ));
-//                return;
-//            }
-//
-//            // Custom ValidationError example
-//            String command = req.getExecutable().getValue();
-//            ArrayList<String> commandAndArgs = new ArrayList<>(req.getArgumentListCount() + 1);
-//            commandAndArgs.add(0, command);
-//            for (int i = 1; i < req.getArgumentListCount();) {
-//                String str = req.getArgumentList(i).getValue();
-//                if (str.isEmpty()) {
-//                    continue;
-//                }
-//                Logger.getLogger(TaskLaunchServer.class.getName()).log(Level.INFO,
-//                        "arg" + i + ": '" + str + "'");
-//                commandAndArgs.add(i, str);
-//                i++;
-//            }
-//
-//            ProcessBuilder pb = new ProcessBuilder(commandAndArgs);
-//            try {
-//                Process proc = pb.start();
-//                int exitValue = proc.waitFor();
-//                Logger.getLogger(TaskLaunchServer.class.getName()).log(Level.INFO,
-//                        "exec return: " + String.valueOf(exitValue));
-//            } catch (IOException | InterruptedException ex) {
-//                Logger.getLogger(TaskLaunchServer.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//        }
-//    }
 }
