@@ -5,13 +5,21 @@
         <groupId>org.sila-standard</groupId>
         <artifactId>sila_java</artifactId>
         <version>0.0.3-SNAPSHOT</version>
+        <relativePath>./extern/sila_java/</relativePath>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <groupId>de.fau.servers.task_launcher</groupId>
+    <groupId>de.fau.servers.task-launcher</groupId>
     <artifactId>task-launcher</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
+
+    <name>task-launcher</name>
+    <description>A task launcher for starting programs and running scripts as a SiLA 2 service.</description>
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
 
     <developers>
         <developer>
@@ -85,11 +93,9 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>de.fau.servers.task_launcher.TaskLaunchServer</mainClass>
+                    <mainClass>de.fau.servers.task-launcher.TaskLaunchServer</mainClass>
                 </configuration>
             </plugin>
         </plugins>
     </build>
-    <name>task-launcher</name>
-    <description>A task launcher for starting programs and running scripts as a SiLA 2 service.</description>
 </project>
