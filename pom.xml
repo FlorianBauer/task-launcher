@@ -93,7 +93,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>de.fau.servers.task-launcher.TaskLaunchServer</mainClass>
+                    <mainClass>de.fau.servers.task_launcher.TaskLaunchServer</mainClass>
                 </configuration>
             </plugin>
         </plugins>
