@@ -2,15 +2,12 @@
 <Feature SiLA2Version="1.0" FeatureVersion="1.0" Originator="de.fau" Category="utilities" xmlns="http://www.sila-standard.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_base/raw/master/schema/FeatureDefinition.xsd">
     <Identifier>TaskLaunchController</Identifier>
     <DisplayName>Task Launch Controller</DisplayName>
-    <Description>
-        Exposes a command with constrained parameters for test purposes.
-    </Description>
-
+    <Description>Controls the launch of a programm or script on the local host.</Description>
     <Command>
         <Identifier>StartTask</Identifier>
         <DisplayName>Start Task</DisplayName>
         <Description>Starts a program, task or script.</Description>
-        <Observable>No</Observable>
+        <Observable>Yes</Observable>
         <Parameter>
             <Identifier>Executable</Identifier>
             <DisplayName>The binary or script to execute.</DisplayName>
