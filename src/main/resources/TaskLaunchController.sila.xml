@@ -2,7 +2,7 @@
 <Feature SiLA2Version="1.0" FeatureVersion="1.0" Originator="de.fau" Category="utilities" xmlns="http://www.sila-standard.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_base/raw/master/schema/FeatureDefinition.xsd">
     <Identifier>TaskLaunchController</Identifier>
     <DisplayName>Task Launch Controller</DisplayName>
-    <Description>Controls the launch of a programm or script on the local host.</Description>
+    <Description>Controls the launch of a program or script on the local host.</Description>
     <Command>
         <Identifier>StartTask</Identifier>
         <DisplayName>Start Task</DisplayName>
@@ -10,15 +10,15 @@
         <Observable>Yes</Observable>
         <Parameter>
             <Identifier>Executable</Identifier>
-            <DisplayName>The binary or script to execute.</DisplayName>
-            <Description>The binary which gets executed (e.g. "/usr/bin/python3", "C:\Programms\MyTask.exe").</Description>
+            <DisplayName>Executable</DisplayName>
+            <Description>The binary or script to execute (e.g. "/usr/bin/python3", "C:\Programs\MyTask.exe").</Description>
             <DataType>
                 <Basic>String</Basic>
             </DataType>
         </Parameter>
         <Parameter>
             <Identifier>ArgumentList</Identifier>
-            <DisplayName>List of aruments to pass to the executable.</DisplayName>
+            <DisplayName>Argument List</DisplayName>
             <Description>Arguments wich get passed to the executable (could be empty).</Description>
             <DataType>
                 <Constrained>
