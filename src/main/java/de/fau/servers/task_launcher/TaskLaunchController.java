@@ -44,7 +44,7 @@ class TaskLaunchController extends TaskLaunchControllerGrpc.TaskLaunchController
                             Process proc = pb.start();
                             exitValue = proc.waitFor();
                         } catch (IOException ex) {
-                            log.error("Execption: ", ex);
+                            log.error(ex.getMessage());
                             exitValue = 2;
                         } catch (InterruptedException ex) {
                             Thread.currentThread().interrupt();
