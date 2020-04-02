@@ -53,7 +53,7 @@ class TaskLaunchController extends TaskLaunchControllerGrpc.TaskLaunchController
                         return TaskLaunchControllerOuterClass.StartTask_Responses
                                 .newBuilder()
                                 .build();
-                    }, Duration.ofMinutes(1));
+                    }, Duration.ofSeconds(30));
 
     @Override
     public void close() {
