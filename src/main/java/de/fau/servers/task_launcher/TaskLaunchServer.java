@@ -1,14 +1,14 @@
 package de.fau.servers.task_launcher;
 
+import java.io.IOException;
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
 import sila_java.library.core.encryption.SelfSignedCertificate;
+import static sila_java.library.core.utils.FileUtils.getResourceContent;
+import static sila_java.library.core.utils.Utils.blockUntilStop;
 import sila_java.library.server_base.SiLAServer;
 import sila_java.library.server_base.identification.ServerInformation;
 import sila_java.library.server_base.utils.ArgumentHelper;
-import java.io.IOException;
-import static sila_java.library.core.utils.FileUtils.getResourceContent;
-import static sila_java.library.core.utils.Utils.blockUntilStop;
 
 /**
  * SiLA Server which can launch programs and scripts on the local host.
