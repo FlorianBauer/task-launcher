@@ -9,7 +9,7 @@ import lombok.NonNull;
 import sila2.de.fau.utilities.tasklaunchcontroller.v1.TaskLaunchControllerGrpc;
 import sila2.de.fau.utilities.tasklaunchcontroller.v1.TaskLaunchControllerOuterClass;
 import sila2.org.silastandard.SiLAFramework;
-import sila_java.library.core.sila.types.SiLAErrors;
+import sila_java.library.core.sila.errors.SiLAErrors;
 import sila_java.library.server_base.command.observable.ObservableCommandManager;
 import sila_java.library.server_base.command.observable.ObservableCommandTaskRunner;
 
