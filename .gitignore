@@ -1,5 +1,5 @@
 # Output directory
-/target/
+target/
 
 # Generated files
 *.class

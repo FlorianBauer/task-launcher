@@ -28,12 +28,10 @@ public class TaskLaunchServer implements AutoCloseable {
      * @param argumentHelper Custom Argument Helper
      */
     TaskLaunchServer(@NonNull final ArgumentHelper argumentHelper) {
-        final ServerInformation serverInfo = new ServerInformation(
-                SERVER_TYPE,
+        final ServerInformation serverInfo = new ServerInformation(SERVER_TYPE,
                 "A Task Launch Server",
-                "www.cs7.tf.fau.de",
-                "v0.0"
-        );
+                "https://www.cs7.tf.fau.de",
+                "0.0.1");
 
         try {
             /*

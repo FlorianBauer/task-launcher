@@ -9,31 +9,28 @@
         <Description>Starts a program, task or script.</Description>
         <Observable>Yes</Observable>
         <Parameter>
-            <Identifier>Executable</Identifier>
-            <DisplayName>Executable</DisplayName>
-            <Description>The binary or script to execute (e.g. "/usr/bin/python3", "C:\Programs\MyTask.exe").</Description>
+            <Identifier>TaskCommand</Identifier>
+            <DisplayName>Task Command</DisplayName>
+            <Description>The command to start the given task (e.g. "/usr/bin/python3 MyTask.py", "C:\Programs\MyTask.exe --myArg").</Description>
             <DataType>
                 <Basic>String</Basic>
             </DataType>
         </Parameter>
         <Parameter>
-            <Identifier>ArgumentList</Identifier>
-            <DisplayName>Argument List</DisplayName>
-            <Description>Arguments wich get passed to the executable (could be empty).</Description>
+            <Identifier>ExpectedReturnValue</Identifier>
+            <DisplayName>Expected Return Value</DisplayName>
+            <Description>Arguments which get passed to the executable (could be empty).</Description>
             <DataType>
-                <Constrained>
-                    <DataType>
-                        <List>
-                            <DataType>
-                                <Basic>String</Basic>
-                            </DataType>
-                        </List>
-                    </DataType>
-                    <Constraints>
-                        <MaximalElementCount>32</MaximalElementCount>
-                    </Constraints>
-                </Constrained>
+                <Basic>Integer</Basic>
             </DataType>
         </Parameter>
+        <Response>
+            <Identifier>ReturnValue</Identifier>
+            <DisplayName>Return Value</DisplayName>
+            <Description>The returned value.</Description>
+            <DataType>
+                <Basic>Integer</Basic>
+            </DataType>
+        </Response>
     </Command>
 </Feature>
