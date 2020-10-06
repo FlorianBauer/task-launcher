@@ -1,11 +1,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-    <!-- In this repository, everything is inherited from the parent pom -->
     <parent>
-        <groupId>org.sila-standard</groupId>
-        <artifactId>sila_java</artifactId>
-        <version>0.0.3-SNAPSHOT</version>
-        <relativePath>./extern/sila_java/</relativePath>
+        <groupId>de.fau.servers.task-launcher</groupId>
+        <artifactId>task-launcher</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
@@ -82,7 +80,7 @@
                             <grpcVersion>${grpc.version}</grpcVersion>
                             <features>
                                 <param>src/main/resources/TaskLaunchController.sila.xml</param>
-								<param>src/main/resources/SiLAService.sila.xml</param>
+                                <param>../extern/sila_java/library/sila_base/src/main/resources/sila_base/feature_definitions/org/silastandard/core/SiLAService.sila.xml</param>
                             </features>
                         </configuration>
                     </execution>
