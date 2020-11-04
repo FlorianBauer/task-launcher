@@ -5,6 +5,7 @@ target/
 *.class
 *.jar
 [Cc]onfig.java
+[Cc]onfig.json
 
 # Temporary and core files
 ~*
@@ -14,3 +15,4 @@ core
 dist/
 private/
 nbproject/
+nbactions.xml
