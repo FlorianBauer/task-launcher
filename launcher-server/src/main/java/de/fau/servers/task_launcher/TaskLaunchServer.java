@@ -16,8 +16,10 @@ import sila_java.library.server_base.utils.ArgumentHelper;
 @Slf4j
 public class TaskLaunchServer implements AutoCloseable {
 
-    // Every SiLA Server needs to define a type
-    public static final String SERVER_TYPE = "Task Launch Control Server";
+    /**
+     * The server type identifier of this server.
+     */
+    public static final String SERVER_TYPE = "TaskLaunchServer";
 
     // SiLA Server constructed in constructor
     private final SiLAServer server;
