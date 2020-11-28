@@ -7,10 +7,16 @@ within a SiLA 2 feature and allow remote clients to use those.
 
 ### Build the Project
 
-To build this project, a moderately current JDK and Maven installation is required.
+First, clone the repository.
+```bash
+git clone --recurse-submodules https://github.com/FlorianBauer/task-launcher.git
+```
+
+To build this project, JDK 8 or higher and a moderately current Maven installation is required.
 Enter the project directory and use the following command to start the build process:
 
 ```bash
+cd path/to/task-launcher/
 mvn clean install -DskipTests
 ```
 
