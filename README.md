@@ -12,8 +12,9 @@ First, clone the repository.
 git clone --recurse-submodules https://github.com/FlorianBauer/task-launcher.git
 ```
 
-To build this project, JDK 8 or higher and a moderately current Maven installation is required.
-Enter the project directory and use the following command to start the build process:
+To build this project, a JavaSE/JDK installation in version >= 8 and <= 13, as well as a moderately 
+current Maven installation is required. Enter the project directory and use the following command to 
+start the build process:
 
 ```bash
 cd path/to/task-launcher/
