@@ -19,7 +19,7 @@
         <Parameter>
             <Identifier>ExpectedReturnValue</Identifier>
             <DisplayName>Expected Return Value</DisplayName>
-            <Description>Arguments which get passed to the executable (could be empty).</Description>
+            <Description>Integer number which defines a successful termination of the task (0 on default).</Description>
             <DataType>
                 <Basic>Integer</Basic>
             </DataType>
@@ -27,7 +27,7 @@
         <Response>
             <Identifier>ReturnValue</Identifier>
             <DisplayName>Return Value</DisplayName>
-            <Description>The returned value.</Description>
+            <Description>The returned value after task execution.</Description>
             <DataType>
                 <Basic>Integer</Basic>
             </DataType>
