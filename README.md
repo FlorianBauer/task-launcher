@@ -12,7 +12,7 @@ First, clone the repository.
 git clone --recurse-submodules https://github.com/FlorianBauer/task-launcher.git
 ```
 
-To build this project, a JavaSE/JDK installation in version >= 8 and <= 15, as well as a moderately 
+To build this project, a distribution of [JDK](https://jdk.java.net/) or [OpenJDK](https://adoptopenjdk.net/) in version >= 8, as well as a moderately 
 current Maven installation is required. Enter the project directory and use the following command to 
 start the build process:
 
@@ -22,18 +22,18 @@ mvn clean install -DskipTests
 ```
 
 After an successful built, the resulting `*.jar`-file is located in the `./launcher-server/target/` 
-directory as `launcher-server-exec.jar`.
+directory as `task-launcher.jar`.
 
 
 ### Usage
 
-Run the SiLA 2 service: `java -jar launcher-server-exec.jar`.  
-List the available network interfaces: `java -jar launcher-server-exec.jar -l yes`  
-Enable network discovery (e.g. on localhost): `java -jar launcher-server-exec.jar -n lo`  
+Run the SiLA 2 service: `java -jar task-launcher.jar`.  
+List the available network interfaces: `java -jar task-launcher.jar -l yes`  
+Enable network discovery (e.g. on localhost): `java -jar task-launcher.jar -n lo`  
 
 SiLA 2 conform, dynamic clients to inspect the available service(s) can be found here:
-* [SiLA Browser](https://unitelabs.ch/technology/plug-and-play/sila-browser/)
 * [sila-orchestrator](https://github.com/FlorianBauer/sila-orchestrator)
+* [Universal SiLA Client](https://gitlab.com/SiLA2/universal-sila-client/sila_universal_client)
 
 
 ### Arguments
@@ -62,7 +62,7 @@ certain Users and setting up appropriate firewall restrictions is also advised.
 2. Create a new text file in the folder called `task-launcher.txt`.
 3. Open the file and insert the following content with the concrete network interface and file paths:
 ```
-start java -jar "C:\path\to\launcher-server\target\launcher-server-exec.jar" -n eth01 -c "C:\path\to\store\task-launcher.conf"
+start java -jar "C:\path\to\launcher-server\target\task-launcher.jar" -n eth01 -c "C:\path\to\store\task-launcher.conf"
 ```
 4. Save and close the text file.
 5. Change the suffix of the file by renaming `task-launcher.txt` into `task-launcher.bat`.
