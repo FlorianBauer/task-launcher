@@ -1,4 +1,6 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <parent>
         <groupId>de.fau.servers.task-launcher</groupId>
@@ -15,16 +17,21 @@
     <name>launcher-server</name>
     <description>A task launcher for starting programs and running scripts as a SiLA 2 service.</description>
     <properties>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
+        <grpc.version>1.20.0</grpc.version>
+        <protobuf.version>3.4.0</protobuf.version>
+        <java.version>1.8</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <argLine>-Dfile.encoding=UTF-8</argLine>
     </properties>
 
     <developers>
         <developer>
             <name>Florian Bauer</name>
             <email>florian.bauer.dev@gmail.com</email>
-            <organization>Friedrich-Alexander-Universität Erlangen-Nürnberg</organization>
-            <organizationUrl>https://www.cs7.tf.fau.de/</organizationUrl>
+            <organizationUrl>https://github.com/FlorianBauer/</organizationUrl>
         </developer>
     </developers>
 
@@ -35,36 +42,21 @@
         </license>
     </licenses>
 
-    <!-- Common Dependencies for Server and Client side -->
     <dependencies>
-        <!-- Argument Parser -->
-        <dependency>
-            <groupId>net.sourceforge.argparse4j</groupId>
-            <artifactId>argparse4j</artifactId>
-            <version>0.8.1</version>
-        </dependency>
-
-        <!-- SiLA Dependencies -->
         <dependency>
             <groupId>org.sila-standard.sila_java.library</groupId>
             <artifactId>server_base</artifactId>
             <version>0.0.3-SNAPSHOT</version>
         </dependency>
-
         <dependency>
-            <groupId>org.sila-standard.sila_java.library</groupId>
-            <artifactId>manager</artifactId>
-            <version>0.0.3-SNAPSHOT</version>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.20</version>
         </dependency>
     </dependencies>
 
     <build>
         <plugins>
-            <!--
-            The Maven Plugin is used to generate proto files from the Feature Definitions, these should be located
-            in the resources folder of the package (by default src/main/resources). You can add as many
-            feature definitions as you want to implement.
-            -->
             <plugin>
                 <groupId>org.sila-standard.sila_java.library</groupId>
                 <artifactId>maven_plugin</artifactId>
@@ -86,14 +78,34 @@
                     </execution>
                 </executions>
             </plugin>
-
-            <!-- Wrapping a stand-alone executable for ease of distribution for testing -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <compilerArgs>
+                        <arg>-Xlint:all</arg>
+                    </compilerArgs>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.4.5</version>
                 <configuration>
                     <mainClass>de.fau.servers.task_launcher.TaskLaunchServer</mainClass>
+                    <finalName>${project.parent.artifactId}</finalName>
+                    <layout>JAR</layout>
                 </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

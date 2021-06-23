@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.time.Duration;
 import java.util.List;
 import lombok.NonNull;
-import lombok.extern.slf4j.Slf4j;
 import sila2.de.fau.utilities.tasklaunchcontroller.v1.TaskLaunchControllerGrpc;
 import sila2.de.fau.utilities.tasklaunchcontroller.v1.TaskLaunchControllerOuterClass;
 import sila2.org.silastandard.SiLAFramework;
@@ -13,7 +12,6 @@ import sila_java.library.core.sila.errors.SiLAErrors;
 import sila_java.library.server_base.command.observable.ObservableCommandManager;
 import sila_java.library.server_base.command.observable.ObservableCommandTaskRunner;
 
-@Slf4j
 class TaskLaunchController extends TaskLaunchControllerGrpc.TaskLaunchControllerImplBase
         implements AutoCloseable {
 
@@ -35,7 +33,7 @@ class TaskLaunchController extends TaskLaunchControllerGrpc.TaskLaunchController
                             Process proc = pb.start();
                             exitValue = proc.waitFor();
                         } catch (IOException ex) {
-                            log.error(ex.getMessage());
+                            System.err.println(ex.getMessage());
                             exitValue = 2;
                         } catch (InterruptedException ex) {
                             Thread.currentThread().interrupt();
