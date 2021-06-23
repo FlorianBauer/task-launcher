@@ -32,7 +32,7 @@ public class TaskLaunchServer implements AutoCloseable {
     TaskLaunchServer(@NonNull final ArgumentHelper argumentHelper) {
         final ServerInformation serverInfo = new ServerInformation(SERVER_TYPE,
                 "A Task Launch Server",
-                "https://www.cs7.tf.fau.de",
+                "https://github.com/FlorianBauer/",
                 "0.0.1");
 
         try {
