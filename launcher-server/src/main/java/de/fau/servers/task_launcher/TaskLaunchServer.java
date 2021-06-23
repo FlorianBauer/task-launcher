@@ -2,7 +2,6 @@ package de.fau.servers.task_launcher;
 
 import java.io.IOException;
 import lombok.NonNull;
-import lombok.extern.slf4j.Slf4j;
 import sila_java.library.core.encryption.SelfSignedCertificate;
 import static sila_java.library.core.utils.FileUtils.getResourceContent;
 import static sila_java.library.core.utils.Utils.blockUntilStop;
@@ -13,7 +12,6 @@ import sila_java.library.server_base.utils.ArgumentHelper;
 /**
  * SiLA Server which can launch programs and scripts on the local host.
  */
-@Slf4j
 public class TaskLaunchServer implements AutoCloseable {
 
     /**
@@ -96,6 +94,5 @@ public class TaskLaunchServer implements AutoCloseable {
             Runtime.getRuntime().addShutdownHook(new Thread(launcherServer::close));
             blockUntilStop();
         }
-        log.info("Termination complete.");
     }
 }
