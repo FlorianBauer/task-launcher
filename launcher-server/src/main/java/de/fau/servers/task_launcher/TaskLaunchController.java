@@ -1,5 +1,6 @@
 package de.fau.servers.task_launcher;
 
+import static de.fau.servers.task_launcher.utils.CommandTokenizer.splitArgsAndIgnoreQuotes;
 import io.grpc.stub.StreamObserver;
 import java.io.IOException;
 import java.time.Duration;
@@ -25,17 +26,16 @@ class TaskLaunchController extends TaskLaunchControllerGrpc.TaskLaunchController
             = new ObservableCommandManager<>(
                     new ObservableCommandTaskRunner(MAX_QUEUE_SIZE, MAX_CONCURRENT_CALLS),
                     command -> {
-                        final String cmd = command.getParameter().getTaskCommand().getValue().trim();
                         expRetVal = command.getParameter().getExpectedReturnValue().getValue();
-                        final List<String> commandAndArgs = List.of(cmd.split(" "));
-                        ProcessBuilder pb = new ProcessBuilder(commandAndArgs);
+                        final List<String> cmdAndArgs = splitArgsAndIgnoreQuotes(command.getParameter().getTaskCommand().getValue());
+                        final ProcessBuilder pb = new ProcessBuilder(cmdAndArgs);
                         try {
-                            Process proc = pb.start();
+                            final Process proc = pb.start();
                             exitValue = proc.waitFor();
-                        } catch (IOException ex) {
+                        } catch (final IOException ex) {
                             System.err.println(ex.getMessage());
                             exitValue = 2;
-                        } catch (InterruptedException ex) {
+                        } catch (final InterruptedException ex) {
                             Thread.currentThread().interrupt();
                         }
 
